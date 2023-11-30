@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filtering &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Keyword filter" href="keyword.html" />
+    <link rel="prev" title="Boolean Searching" href="../search/boolean.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/filter/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/filter/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-vs-constrained-search-vs-full-search">
+   Filtering vs Constrained Search vs Full Search
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-text-search">
+     General text search
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constrained-text-search">
+     Constrained text search
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter">
+     Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-filter-operations">
+   Common Filter Operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-the-identifer-you-need-to-use">
+     Finding the identifer you need to use
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matching-on-multiple-filters-of-the-same-facet">
+     Matching on multiple filters of the same facet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#narrow-matching">
+     Narrow Matching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-filters-of-the-same-facet">
+       (Multiple filters of the same facet)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negation">
+     Negation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-operations">
+   Filter Operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-material">
+     Filter by material
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-technique">
+     Filter by technique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-style">
+     Filter by style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-organisation">
+     Filter by organisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-person">
+     Filter by person
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-depiction">
+     Filter by depiction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-maker">
+     Filter by maker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-place">
+     Filter by place
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-category">
+     Filter by category
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-collection">
+     Filter by collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-by-association">
+     Filter by association
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-topics">
+   Advanced Topics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-support-within-filtering">
+     Boolean support within filtering
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="filtering">
+<span id="filtering-top"></span><h1>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h1>
+<p>Filter parameters allow for precise matching on fields in object records, only returning the object records <em>exactly</em> matching the identifier(s) you specify on a single field (or a group of fields). These fields are vocabulary controlled, that is, instead of typing in the word you want to find (e.g. “William Morris”), we use an identifier instead, such as “A8676”, or “THES12345”) which helps avoid issues with variations in spelling. Whilst this way of finding records is always to be preferred, it does mean you need to know the right identifier to use.</p>
+<div class="section" id="filtering-vs-constrained-search-vs-full-search">
+<h2>Filtering vs Constrained Search vs Full Search<a class="headerlink" href="#filtering-vs-constrained-search-vs-full-search" title="Permalink to this headline">¶</a></h2>
+<p>Let’s compare the results from filtering, a general text search and a constrained (i.e. one field only) text search, all looking for the material ‘Jet’</p>
+<div class="section" id="general-text-search">
+<h3>General text search<a class="headerlink" href="#general-text-search" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Jet&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that mention the term &#39;Jet&#39; anywhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 567 objects that mention the term &#39;Jet&#39; anywhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="constrained-text-search">
+<h3>Constrained text search<a class="headerlink" href="#constrained-text-search" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_material_technique=Jet&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that mention the term &#39;Jet&#39; within materials and techniques fields&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 199 objects that mention the term &#39;Jet&#39; within materials and techniques fields
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter">
+<h3>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT45514&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have been catalogued as using the material &#39;Jet&#39; (AAT45514)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 52 objects that have been catalogued as using the material &#39;Jet&#39; (AAT45514)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see from the results, there are many more records using the term ‘Jet’ anywhere within the record than are found by searching specifically on the field for material or technique or filtering on the relevant identifier.  This could be for a few different reasons:</p>
+<ul class="simple">
+<li><p>Some of the matches on the general search for the term ‘Jet’ are using it with other meanings, such as Jet Engine, Design for Jet Jewellery. These might be irrelevant to your search for objects made of Jet (although perhaps the designs might also be of interest)</p></li>
+<li><p>Some objects which are made of Jet have object records that have not been extensively catalogued, but they do mention in another text field the object is made of Jet. These objects would be excluded from your search if only on the material and technique field, or if filtering on the identifer for Jet (AAT45514)</p></li>
+<li><p>Some objects could be made from a specific sub-type of Jet (if this exists). These would not be found by filtering on Jet (AAT45514), as the identifier used would not match. For this to work (which is a planned future enhancement to the API), we would need some form of hierarchical filtering to enable matching on a type (Jet) and all its sub-types.</p></li>
+</ul>
+<p>So, in summary, while filtering on the identifier (the last query we ran) will provide the most precise results, it is more than likely to not recall <em>all</em> relevant results.  Keep this in mind when you use filtering, that although the number returned gives the appearance of an exact count (e.g. the V&amp;A holds a certain number of objects made of Jet), you should also compare this result with the other searches (using ‘q’ and ‘q_material_techniques’), to see if there are other objects not yet catalogued as extensively that would also match. As cataloguing is a never ending endeavour, these number are always likely to change over time.</p>
+</div>
+</div>
+<div class="section" id="common-filter-operations">
+<h2>Common Filter Operations<a class="headerlink" href="#common-filter-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="finding-the-identifer-you-need-to-use">
+<h3>Finding the identifer you need to use<a class="headerlink" href="#finding-the-identifer-you-need-to-use" title="Permalink to this headline">¶</a></h3>
+<p>Certainly the most obvious question, how to find the right identifier to filter on. Beyond having memorised all the vocabularies there is no exact science to this. We have listed some common <a class="reference internal" href="../common-identifiers.html#identifiers-top"><span class="std std-ref">Identifiers</span></a> to get you started, but after that a good approach is to run a text search and from the returned relevant object records look for the identifiers you need. For example if you want to filter on objects made in Manchester, do a general text search (or a constrained search on ‘q_place’) on ‘Manchester’ and look through the returned object records for the place identifier for Manchester, then query again but this time filtering on that identifier (it’s x28993 in case you wondered).</p>
+</div>
+<div class="section" id="matching-on-multiple-filters-of-the-same-facet">
+<h3>Matching on multiple filters of the same facet<a class="headerlink" href="#matching-on-multiple-filters-of-the-same-facet" title="Permalink to this headline">¶</a></h3>
+<p>You might want to filter on object records that contain for example, both silver and lace. This can be done by repeating the filter parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT11029&amp;id_material=AAT132861&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that contain silver (&#39;AAT11029&#39;) and/or lace (&#39;AAT132861&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 10197 objects that contain silver (&#39;AAT11029&#39;) and/or lace (&#39;AAT132861&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="narrow-matching">
+<span id="filter-narrower"></span><h3>Narrow Matching<a class="headerlink" href="#narrow-matching" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="multiple-filters-of-the-same-facet">
+<h4>(Multiple filters of the same facet)<a class="headerlink" href="#multiple-filters-of-the-same-facet" title="Permalink to this headline">¶</a></h4>
+<p>As you might notice from the above result, the object records returned will be those that say the object is made with silver and lace, but it will also include those that only say the object was made with lace (with no mention of silver) and likewise for those object made with silver (with no mention of lace)</p>
+<p>You might instead want to filter on object records that contain <em>only</em> both silver and lace. This is done as above, but you also need to set the search_mode
+parameter to “narrow” (otherwise known as boolean AND) instead of the default mode of “broad” (otherwise known as boolean OR).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT11029&amp;id_material=AAT132861&amp;search_mode=narrow&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that contain silver (&#39;AAT11029&#39;) and lace (&#39;AAT132861&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 5 objects that contain silver (&#39;AAT11029&#39;) and lace (&#39;AAT132861&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Please note that this search mode setting then applies to all facets specified, if you are querying more than one. You cannot set only some facets search mode to broad/narrow.</p>
+</div>
+</div>
+<div class="section" id="negation">
+<h3>Negation<a class="headerlink" href="#negation" title="Permalink to this headline">¶</a></h3>
+<p>You can also use filters to <em>exclude</em> any object records that would match the term(s) you have specified, by putting ‘-‘ before the identifier. So for example, if you want all object records that are not made of plastic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=-AAT14570&amp;id_material=AAT10797&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that do not contain plastic (&#39;AAT14570&#39;) and do contain glass (&#39;AAT10797&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 8117 objects that do not contain plastic (&#39;AAT14570&#39;) and do contain glass (&#39;AAT10797&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT14570&amp;id_material=AAT10797&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that do contain plastic (&#39;AAT14570&#39;) and do contain glass (&#39;AAT10797&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 13453 objects that do contain plastic (&#39;AAT14570&#39;) and do contain glass (&#39;AAT10797&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note, use of negation automatically enables a narrow search mode (see <a class="reference internal" href="#filter-narrower"><span class="std std-ref">Narrow Matching</span></a>), as we do not think there is a use case for both negation and broad searching. If you do have one, please let us know.</p>
+</div>
+</div>
+</div>
+<div class="section" id="filter-operations">
+<h2>Filter Operations<a class="headerlink" href="#filter-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filter-by-material">
+<span id="filter-material"></span><h3>Filter by material<a class="headerlink" href="#filter-by-material" title="Permalink to this headline">¶</a></h3>
+<p>As covered already in the first example above, this lets you find object records cataloging some material as part of the object.</p>
+<p>Identifiers in use come from the <a class="reference external" href="http://www.getty.edu/research/tools/vocabularies/aat/">Getty Art &amp; Architecture Thesaurus</a> (identifiers prefixed with AAT), and identifiers from the V&amp;A (identifiers prefixed with THES)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT10797&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have been catalogued as using the material &#39;Glass&#39; (AAT10797)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 8193 objects that have been catalogued as using the material &#39;Glass&#39; (AAT10797)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-technique">
+<span id="filter-technique"></span><h3>Filter by technique<a class="headerlink" href="#filter-by-technique" title="Permalink to this headline">¶</a></h3>
+<p>Very similiar to materials, this filter lets you find catalogued object records making use of a particular production technique.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_technique=AAT53241&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that use production technique &#39;etching&#39; (AAT300053241)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 34038 objects that use production technique &#39;etching&#39; (AAT300053241)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-style">
+<span id="filter-style"></span><h3>Filter by style<a class="headerlink" href="#filter-by-style" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by the artistic style of the object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_style=AAT21515&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that use style &#39;vorticism&#39; (AAT21515) as an artistic classification&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 39 objects that use style &#39;vorticism&#39; (AAT21515) as an artistic classification
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-organisation">
+<span id="filter-organisation"></span><h3>Filter by organisation<a class="headerlink" href="#filter-by-organisation" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by the organisation connected in some way to an object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_organisation=AUTH339709&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that were production by the Underground London Electric Railway Company organisation (AUTH339709)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 0 objects that were production by the Underground London Electric Railway Company organisation (AUTH339709)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-person">
+<span id="filter-person"></span><h3>Filter by person<a class="headerlink" href="#filter-by-person" title="Permalink to this headline">¶</a></h3>
+<p>This letd you filter object records by the person connected in someway to an object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_person=A6630&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">{record_count}</span><span class="s2"> objects that are connected in some way to J.B. Yeats (A6630)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are {record_count} objects that are connected in some way to J.B. Yeats (A6630)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-depiction">
+<span id="filter-depiction"></span><h3>Filter by depiction<a class="headerlink" href="#filter-by-depiction" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by the person, place, or concept depicted in an object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_depicts=A6630&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object(s) that depict J.B. Yeats (A6630)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1 object(s) that depict J.B. Yeats (A6630)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-maker">
+<span id="filter-maker"></span><h3>Filter by maker<a class="headerlink" href="#filter-by-maker" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by the maker of an object (this can be one of a person, a group of people, or an organisation)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_maker=A6630&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are made by J.B. Yeats (A6630)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 11 objects that are made by J.B. Yeats (A6630)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-place">
+<span id="filter-place"></span><h3>Filter by place<a class="headerlink" href="#filter-by-place" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by a place where an object was made, depicts or is otherwise associated with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_place=x37151&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are from, depict or are associated with the place &#39;Redcar and Cleveland&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 7 objects that are from, depict or are associated with the place &#39;Redcar and Cleveland&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-category">
+<span id="filter-category"></span><h3>Filter by category<a class="headerlink" href="#filter-by-category" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by a categorisation applied to an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_category=THES49002&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are categorised as &#39;Gardens &amp; Gardening&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 2514 objects that are categorised as &#39;Gardens &amp; Gardening&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-collection">
+<span id="filter-collection"></span><h3>Filter by collection<a class="headerlink" href="#filter-by-collection" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by the collecting department in the museum that manages an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_collection=THES260586&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are part of the &#39;Digital, Architecture and Design&#39; department&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1004 objects that are part of the &#39;Digital, Architecture and Design&#39; department
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-by-association">
+<span id="filter-association"></span><h3>Filter by association<a class="headerlink" href="#filter-by-association" title="Permalink to this headline">¶</a></h3>
+<p>This lets you filter object records by a person, place, people, organisation associated with an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_associated=A8575&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object(s) with which William Kent (A8575) is associated (but not neccessarily as the maker of the object and/or depicted in the object)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 2 object(s) with which William Kent (A8575) is associated (but not neccessarily as the maker of the object and/or depicted in the object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-topics">
+<h2>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="boolean-support-within-filtering">
+<h3>Boolean support within filtering<a class="headerlink" href="#boolean-support-within-filtering" title="Permalink to this headline">¶</a></h3>
+<p>You might be thinking another way to exactly specify multiple filters is to provide support for <a class="reference internal" href="../search/boolean.html#boolean-top"><span class="std std-ref">Boolean Searching</span></a> operators within a filter parameter. For example using id_person=”A6630|A6631” to indicate you want object records mentioning either A6630 or A6631 or both of them. You might also think you could further extend this to even more complex filtering by using boolean operators in multiple parameters (id_person, id_material, etc); to specify the way you want filters to be combined (e.g. applying boolean AND between fields (‘narrowing’) and boolean OR within a repeating field (‘broadening’), except for the materials field where boolean negation applies, except for material type silver which must be present on all matching object records. You would rightly think this would then provide you with a more granular way to control the search mode, per field instead of forcing them all to be “broad” or “narrow” combinations as the “search_mode” parameter does at present.</p>
+<p>You might think all this, but at present it is not supported.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./filter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../search/boolean.html" title="previous page">Boolean Searching</a>
+    <a class='right-next' id="next-link" href="keyword.html" title="next page">Keyword filter</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

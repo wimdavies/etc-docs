@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restriction &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miscellaneous" href="miscellaneous.html" />
+    <link rel="prev" title="Keyword filter" href="../filter/keyword.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/restriction/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/restriction/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-year-made">
+   Restricting by year made
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-year-accessioned">
+   Restricting by year accessioned
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-images-existing">
+   Restricting by images existing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-image-size">
+   Restricting by image size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-abundance-of-data">
+   Restricting by abundance of data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-by-on-display">
+   Restricting by on display
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="restriction">
+<span id="restriction-top"></span><h1>Restriction<a class="headerlink" href="#restriction" title="Permalink to this headline">¶</a></h1>
+<p>A restriction can be applied in combination with <a class="reference internal" href="../search/introduction.html#searching-top"><span class="std std-ref">Searching</span></a> or <a class="reference internal" href="../filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a> to remove irrelevant matching results. You can also just use a restriction by itself, but this is likely to return too many results to be useful.</p>
+<div class="section" id="restricting-by-year-made">
+<h2>Restricting by year made<a class="headerlink" href="#restricting-by-year-made" title="Permalink to this headline">¶</a></h2>
+<p>One way to narrow down overwhelming results from a search is to restrict them to a time period of particular interest, if it is known. These parameters allow you to give a range of years of interest for when the object was made.</p>
+<p>Be aware that many objects have uncertain production dates; the further back in time the larger this production date uncertainty is likely to be. For example, an object made in the 16th century might only have an estimated date to within the century or half century range. This means there are often two ranges that need to be compared, the range you specify in the query and the range of the objects production date. We include in the response any object records where these two ranges overlap, even if it’s just by a year. For example, if you query for any objects made from 1700 to 1750, an object with a estimated production date range of 1650 to 1700 would be included in the returned object records.</p>
+<p>If you need to use BC/BCE years you need to enter them as a negative number, for example ‘429BC’ is ‘-429’.</p>
+<p>If you only use the year_made_from parameter, this will include all object records from that given year to the heat death of the current universe (inclusive).</p>
+<p>If you only use the year_made_to parameter, this will cover all object records from the birth of the current universe to that given year (inclusive).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_place=x33164&amp;year_made_from=1800&amp;year_made_to=1900&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects catalogued that were made, depict or are associated with the city of Cork during the period 1800 to 1900&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 8 objects catalogued that were made, depict or are associated with the city of Cork during the period 1800 to 1900
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="restricting-by-year-accessioned">
+<h2>Restricting by year accessioned<a class="headerlink" href="#restricting-by-year-accessioned" title="Permalink to this headline">¶</a></h2>
+<p>Similiarily to above, this lets you find when an object was accessioned into the V&amp;A collection. In this case the year of accession is certain (compared to production dates), but be aware this might not have been when the object first arrived at the museum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?year_accessioned_from=2015&amp;year_accessioned_to=2020&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects catalogued that were accessioned during the period 2015 to 2020&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 45991 objects catalogued that were accessioned during the period 2015 to 2020
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="restricting-by-images-existing">
+<h2>Restricting by images existing<a class="headerlink" href="#restricting-by-images-existing" title="Permalink to this headline">¶</a></h2>
+<p>This parameter (images_exist=1) restricts your results to only those object records that have object images available to show online.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_place=x41085&amp;images_exist=1&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that were made, depict or are associated with Stavanger, Norway and have images available online&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 4 objects that were made, depict or are associated with Stavanger, Norway and have images available online
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="restricting-by-image-size">
+<h2>Restricting by image size<a class="headerlink" href="#restricting-by-image-size" title="Permalink to this headline">¶</a></h2>
+<p>This further lets you restrict results to only those that have larger images available to show. The following parameter options are currently available:</p>
+<ul class="simple">
+<li><p>0 - Equivalant to images_exist above, this returns object records that have images of any size available</p></li>
+<li><p>1 - This returns object records that only have images available upto 768 pixels on the longest length</p></li>
+<li><p>2 - This returns object records that have images available upto 2500 pixels on the longest length</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_place=x32322&amp;image_restrict=2&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that were made, depict or are associated with Melbourne, Australia that have 2500px images available&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 47 objects that were made, depict or are associated with Melbourne, Australia that have 2500px images available
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="restricting-by-abundance-of-data">
+<h2>Restricting by abundance of data<a class="headerlink" href="#restricting-by-abundance-of-data" title="Permalink to this headline">¶</a></h2>
+<p>This parameter (‘data_restrict’) let you select records depending on the extent of cataloguing. The parameter options are:</p>
+<ul class="simple">
+<li><p>basic_only - Matches object records with only a few fields populated, at an early stage of cataloguing</p></li>
+<li><p>physical_only - Matches only object records that have more fields populated, typically fields relating to the physical characteristics of the object such as Materials and Techniques</p></li>
+<li><p>physical_plus - Matches basic_only records and object records that have more fields populated, typically fields relating to the physical characteristics of the object such as Materials and Techniques</p></li>
+<li><p>descriptive_only - Matches only object records that usually have the most fields populated including the more descriptive fields such as summaryDescription.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Boston&amp;data_restrict=basic_only&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects records that mention the word &#39;Boston&#39; and have basic data available&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 252 objects records that mention the word &#39;Boston&#39; and have basic data available
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Boston&amp;data_restrict=physical_only&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects records that mention the word &#39;Boston&#39; and have basic_plus data available&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 295 objects records that mention the word &#39;Boston&#39; and have basic_plus data available
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Boston&amp;data_restrict=physical_plus&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects records that mention the word &#39;Boston&#39; and have physical_plus data available&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 983 objects records that mention the word &#39;Boston&#39; and have physical_plus data available
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Boston&amp;data_restrict=descriptive_only&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects records that mention the word &#39;Boston&#39; and have descriptive_only data only&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 688 objects records that mention the word &#39;Boston&#39; and have descriptive_only data only
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="restricting-by-on-display">
+<h2>Restricting by on display<a class="headerlink" href="#restricting-by-on-display" title="Permalink to this headline">¶</a></h2>
+<p>This parameter (‘on_display_at’) lets you restrict object record results to those that are currently on display at a V&amp;A site. The current options are:</p>
+<ul class="simple">
+<li><p>‘southken’ - South Kensington</p></li>
+<li><p>‘dundee’ - - V&amp;A Dundee</p></li>
+<li><p>‘moc’ - Museum of Childhood</p></li>
+<li><p>‘wed’ - V&amp;A Wedgwood Collection</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=viking&amp;on_display_at=dundee&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects record(s) that mention the word &#39;Viking&#39; and are on display at V&amp;A Dundee&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1 objects record(s) that mention the word &#39;Viking&#39; and are on display at V&amp;A Dundee
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./restriction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../filter/keyword.html" title="previous page">Keyword filter</a>
+    <a class='right-next' id="next-link" href="miscellaneous.html" title="next page">Miscellaneous</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

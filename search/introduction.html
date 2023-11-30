@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searching &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Boolean Searching" href="boolean.html" />
+    <link rel="prev" title="Identifiers" href="../common-identifiers.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/search/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/search/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-all-fields">
+   Searching all fields
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-search-all-records">
+     Example: Search all records
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-by-object-name-object-title-and-or-object-type">
+   Searching by object name (object title and/or object type)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-by-object-title-only">
+     Searching by object title only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-by-object-type-only">
+     Searching by object type only
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-by-place">
+   Searching by place
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-by-material-or-technique">
+   Searching by material or technique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-by-person-people-or-organisation">
+   Searching by person, people or organisation
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="searching">
+<span id="searching-top"></span><h1>Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="searching-all-fields">
+<h2>Searching all fields<a class="headerlink" href="#searching-all-fields" title="Permalink to this headline">¶</a></h2>
+<p>The broadest search you can carry out is for the occurance of a word/phrase (or the absence of one) anywhere in an object record. This is a good starting point in finding an object record matching your search, as it will recall <em>all</em> object records containing (or not containing) that word/phrase. However, the relevancy to your interests of the object records returned could be fairly poor, as you may be finding the same word used across multiple meanings, for example searching for China will bring back both objects from that country, objects made using the material, addresses mentioning China, people and organisations with China in their name, and so on. If you already know that you are only looking for objects relating to China the country or the material, you can use a more targeted search parameter (‘q_place_name’ or ‘q_material’), or even better use a filter (‘id_place’ or ‘id_material’) (see <a class="reference internal" href="../filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a>).</p>
+<div class="section" id="example-search-all-records">
+<h3>Example: Search all records<a class="headerlink" href="#example-search-all-records" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=&quot;china&quot;&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;china&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 27384 objects that have the word &#39;china&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<p>As opposed to this general search query, the following methods of searching will only search within a subset of fields in the object record.</p>
+</div>
+</div>
+<div class="section" id="searching-by-object-name-object-title-and-or-object-type">
+<h2>Searching by object name (object title and/or object type)<a class="headerlink" href="#searching-by-object-name-object-title-and-or-object-type" title="Permalink to this headline">¶</a></h2>
+<p>You might expect that every object has a title, but, outside of unique objects (often but not always paintings, sculpture, etc), this is not always the case. To assist in returning relevant results, this parameter lets you specify a search across both the object title and the object type (Vase, Etching, etc).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do just want to search for a title, or alternatively if you just want to search for a type of object, there are also API parameters to let you do just that, covered below.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_object_name=&quot;book&quot;&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word book in the titles assigned to it or the type of object&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The tenth object is called &#39;</span><span class="si">%s</span><span class="s2">&#39; and has the type of </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">object_records</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="s2">&quot;_primaryTitle&quot;</span><span class="p">],</span> <span class="n">object_records</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="s2">&quot;objectType&quot;</span><span class="p">]))</span>     
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 12630 objects that have the word book in the titles assigned to it or the type of object
+The tenth object is called &#39;The Big Tufty Book&#39; and has the type of Book
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-by-object-title-only">
+<h3>Searching by object title only<a class="headerlink" href="#searching-by-object-title-only" title="Permalink to this headline">¶</a></h3>
+<p>This searches amongst objects that have a title and whose title matches the query string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_object_title=&quot;book&quot;&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;book&#39; in the titles assigned to it&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The fifth object is called &#39;</span><span class="si">%s</span><span class="s2">&#39; and has the type of </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">object_records</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="s2">&quot;_primaryTitle&quot;</span><span class="p">],</span> <span class="n">object_records</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="s2">&quot;objectType&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 4964 objects that have the word &#39;book&#39; in the titles assigned to it
+The fifth object is called &#39;Year Book and Table Book&#39; and has the type of Ramie
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-by-object-type-only">
+<h3>Searching by object type only<a class="headerlink" href="#searching-by-object-type-only" title="Permalink to this headline">¶</a></h3>
+<p>This searches amongst objects that have an object type matching the query string</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It should be noted here that there is an alternative parameter that can be used for object type searches: ‘kw_object_type’, which will only match on <em>exactly</em> what you have written. However, you might want to try and find all the variations (spelling, capitlisation, singlular/plural, etc) on the way the object type can be written, so using this parameter <em>may</em> be better for that purpose.</p>
+<p>In addition, it’s useful to remember that objects can have parts, which is most commonly used to describe objects with discrete components, for example a cutlery set has parts for each item of cutlery within it. If you want to search for all the spoons in the collection you would ideally like to combine results from searching at the object level (for individual spoons) and searching at the part level (for spoons within a cutlery set). Sadly, part level searching is not available in the current API</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_object_type=&quot;book&quot;&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object records that have the word &#39;book&#39; in the object type&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The fifth object is called &#39;</span><span class="si">%s</span><span class="s2">&#39; and has the type of &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">object_records</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="s2">&quot;_primaryTitle&quot;</span><span class="p">],</span> <span class="n">object_records</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="s2">&quot;objectType&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 7874 object records that have the word &#39;book&#39; in the object type
+The fifth object is called &#39;&#39; and has the type of &#39;Book&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-by-place">
+<h2>Searching by place<a class="headerlink" href="#searching-by-place" title="Permalink to this headline">¶</a></h2>
+<p>This is a way to search for a place connected to objects. Instead of an exact identifier match (as with <a class="reference internal" href="../filter/introduction.html#filter-place"><span class="std std-ref">Filter by place</span></a>), this will search the place names as a string, so for example, if you search for London you will match on both “Greater London” and “City of London”, but also ‘London, Ontario’ which may or may not be what you want. If you want an exact match to only a specific place, you are better to use place filtering.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_place_name=London&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are connected to a place containing the word &#39;London&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 92831 objects that are connected to a place containing the word &#39;London&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>For comparison, place filtering on London (x28980) returns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_place=x28980&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that are connected to the place London, England (x28980)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 90929 objects that are connected to the place London, England (x28980)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-by-material-or-technique">
+<h2>Searching by material or technique<a class="headerlink" href="#searching-by-material-or-technique" title="Permalink to this headline">¶</a></h2>
+<p>Similiarly to place, this lets you search for use of a material or technique in the objects production, so searching for ‘Silver’ will find both ‘Silver engraving’ and ‘silver gelatin photography’. As with place, there are equivalent filter parameters (‘id_material’ and ‘id_technique’) that would offer more precise results, see <a class="reference internal" href="../filter/introduction.html#filter-material"><span class="std std-ref">Filter by material</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_material_technique=Silver&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that use a material or technique containing the word &#39;Silver&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 26705 objects that use a material or technique containing the word &#39;Silver&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-by-person-people-or-organisation">
+<h2>Searching by person, people or organisation<a class="headerlink" href="#searching-by-person-people-or-organisation" title="Permalink to this headline">¶</a></h2>
+<p>Following the same pattern as above, this lets you search for a person or organisation involved, depicted or associated with an object. As you might have guessed by now, there are much better filtering parameters that let you perform the same query but better, see {ref} <code class="docutils literal notranslate"><span class="pre">filter:person</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q_actor=william morris&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that connected with a person, people or organisation containing the words &#39;william&#39; and &#39;morris&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 38754 objects that connected with a person, people or organisation containing the words &#39;william&#39; and &#39;morris&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any suggestion the author of this guide is completely biased towards the use of Filtering over Searching and recommends its use in almost all situations is completely correct.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./search"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../common-identifiers.html" title="previous page">Identifiers</a>
+    <a class='right-next' id="next-link" href="boolean.html" title="next page">Boolean Searching</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

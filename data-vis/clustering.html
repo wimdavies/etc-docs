@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Visualisations" href="introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/data-vis/clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/data-vis/clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cluster-specific-api-parameters">
+   Cluster Specific API Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#field-clustering">
+   Field Clustering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#materials">
+     Materials
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#techniques">
+     Techniques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#person">
+     Person
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maker">
+     Maker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#depicts">
+     Depicts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#depicts-person">
+     Depicts (Person)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#associated-actor-person-people-or-organisation">
+     Associated Actor (Person, People or Organisation)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#category">
+     Category
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#style">
+     Style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessioned">
+     Accessioned
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#place">
+     Place
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-type">
+     Object Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collection">
+     Collection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#event">
+     Event
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#organisation">
+     Organisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cluster-exploration-examples">
+   Cluster Exploration Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#materials-used-in-venice-in-the-18th-century">
+     Materials used in Venice in the 18th century
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objects-containing-plastic-accessioned-in-the-c20th">
+     Objects containing plastic accessioned in the C20th
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<span id="clustering-top"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Clustering offers a “birds-eye view” of the data in the collections. Instead of finding individual objects through <a class="reference internal" href="../search/introduction.html#searching-top"><span class="std std-ref">Searching</span></a> &amp; <a class="reference internal" href="../filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a>, you instead see the aggregated counts for each field (material, technique, style, etc) of the object records matching on your query (which can also have most of the same parameters available to search &amp; filter, when applicable). This is useful for exploring the data, giving a sense of the scale of different aspects of the collection, and is particularly useful for data visualisation.</p>
+<p>Clustering can return results in full across all the authority controlled fields, or, if you already have in mind a specific field you are interested in (for example, wanting to find out which materials were most in use in Venice in the 18th century, according to our object records), you can specify that particular field to return only those counts.</p>
+<p>The available fields for clustering are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Material - Which materials are used in making an object.
+* Technique - Which technique are used in an object&#39;s production.
+* Place - Where was an object made (or where does it depict, or is associated with).
+* Person - Who made the object, or is depicted on it, or is associated with an object.
+* Maker - Who made an object
+* Depicts - Who or what is depicted on an object
+* Depicts (Person) - Who is depicted on an object
+* Associated (Person) - Who is associated with an object
+* Category - What category is an object asigned to.
+* Collection - Which collection in the museum does an object belong to.
+* Event - What event is depicted or associated with an object.
+* Gallery - Which gallery is the object on display in.
+* Object Type - What type of object is this.
+* Organisation - Which organisation is created, is depicted, or is associated with an object.
+* Style - What artistic style is the object considered to have.
+* Accession Year - What year was the object accessioned to the museum collection.
+</pre></div>
+</div>
+<p>There are two ways to request individual facets, one also returns the meta information about your search results, the other just returns the relevant term counts. The examples below show both in use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It should be noted the writer of this API documentation is a particular enthusiast for treemap data visualisations (ideally interactive - currently only appearing as fixed images below), but is willing to be convinced there are other ways to visualise cluster data, which <em>may</em> be even be better. <a class="reference external" href="https://github.com/vanda/etc-docs/">Pull Requests</a> either to improve treemaps or replace them with something better welcome.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note whilst data visualisations can be an excellent way to see trends in data and spark new hypothesis for research, caution must be taken in reading too much into the figures, the data the visualisations are built on will have absences and biases and will forever remain incomplete.</p>
+</div>
+<div class="section" id="cluster-specific-api-parameters">
+<h2>Cluster Specific API Parameters<a class="headerlink" href="#cluster-specific-api-parameters" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned you can use all the normal parameters for a search or filter query to reduce your results down to a subset you are interested in. There is an alternative parameter available for clustering available as well:</p>
+<ul class="simple">
+<li><p>cluster_size - Use this instead of page_size to specify the number of results (upto a max of 100). If not set, the default size of 20 is used.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following code is used to create the treemap visualisation using the Vega data visualisation library. Reveal if you want to see the details, send a <a class="reference external" href="https://github.com/vanda/etc-docs/pulls">pull request</a> if you know a better way of doing this, and especially if you can think of something to encode to show a colour range, or to make sure the text label fits within the box, or to show a representative image in the box.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="k">def</span> <span class="nf">Vega</span><span class="p">(</span><span class="n">spec</span><span class="p">):</span>
+    <span class="n">bundle</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">bundle</span><span class="p">[</span><span class="s1">&#39;application/vnd.vega.v5+json&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">bundle</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">treemap</span><span class="p">(</span><span class="n">clusters</span><span class="p">,</span> <span class="n">cluster_name</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">):</span>
+    
+  <span class="n">clusters_json</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">],</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> objects&quot;</span> <span class="o">%</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]],</span> <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]}</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clusters</span><span class="p">)]</span>
+  <span class="n">clusters_json</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">cluster_name</span><span class="p">})</span>
+    
+  <span class="n">Vega</span><span class="p">({</span>
+  <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/schema/vega/v5.json&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Hierarchical Data Layout&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+  <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+  <span class="s2">&quot;padding&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
+  <span class="s2">&quot;autosize&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tree&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="n">clusters_json</span><span class="p">,</span>
+      <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;stratify&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;parentKey&quot;</span><span class="p">:</span> <span class="s2">&quot;parent&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;treemap&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;descending&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;round&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+          <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;width&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;height&quot;</span><span class="p">}]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nodes&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;tree&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="s2">&quot;datum.children&quot;</span> <span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;leaves&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;tree&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="s2">&quot;datum.parent == 0&quot;</span> <span class="p">}]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+
+  <span class="s2">&quot;scales&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;nodes&quot;</span><span class="p">,</span> <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="n">colour</span> <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+      <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;opacity&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+      <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+
+  <span class="s2">&quot;marks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rect&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;nodes&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;interactive&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+      <span class="s2">&quot;encode&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;enter&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;x0&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;y0&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;y2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;y1&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rect&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;leaves&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;encode&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;enter&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;#fff&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;x0&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;y0&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;y2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;y1&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;transparent&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;href&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;https://collections.vam.ac.uk/&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;hover&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;leaves&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;interactive&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+      <span class="s2">&quot;encode&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;enter&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;font&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue, Arial&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;align&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;baseline&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;middle&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;fill&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;#000&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;depth&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="s2">&quot;opacity&quot;</span><span class="p">,</span> <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;depth&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5 * (datum.x0 + datum.x1)&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5 * (datum.y0 + datum.y1)&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="field-clustering">
+<h2>Field Clustering<a class="headerlink" href="#field-clustering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="materials">
+<h3>Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/material/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="c1"># Of course, in a real use case, error handling in case of no results should be added here instead of passing results directly to the treemap function</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Materials&quot;</span><span class="p">,</span> <span class="s2">&quot;#8bcf89&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="techniques">
+<h3>Techniques<a class="headerlink" href="#techniques" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/technique/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Techniques&quot;</span><span class="p">,</span> <span class="s2">&quot;#f58518&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="person">
+<h3>Person<a class="headerlink" href="#person" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/person/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Person&quot;</span><span class="p">,</span> <span class="s2">&quot;#83bcb6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Removing the very large ‘Unknown’ group is left as an exercise for the reader</p>
+</div>
+</div>
+<div class="section" id="maker">
+<h3>Maker<a class="headerlink" href="#maker" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/maker/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Makers&quot;</span><span class="p">,</span> <span class="s2">&quot;#83bcb6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="depicts">
+<h3>Depicts<a class="headerlink" href="#depicts" title="Permalink to this headline">¶</a></h3>
+<p>Not a commonly used field, hence the low numbers.</p>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/depicts/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Depictions&quot;</span><span class="p">,</span> <span class="s2">&quot;#83bab6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="depicts-person">
+<h3>Depicts (Person)<a class="headerlink" href="#depicts-person" title="Permalink to this headline">¶</a></h3>
+<p>Not a commonly used field, hence the low numbers.</p>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/depicts_actor/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Actors (Person, People or Organisation)&quot;</span><span class="p">,</span> <span class="s2">&quot;#83bcb6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="associated-actor-person-people-or-organisation">
+<h3>Associated Actor (Person, People or Organisation)<a class="headerlink" href="#associated-actor-person-people-or-organisation" title="Permalink to this headline">¶</a></h3>
+<p>Not a commonly used field, hence the low numbers.</p>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/associated_actor/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Associated Actors (Person, People, Organisation)&quot;</span><span class="p">,</span> <span class="s2">&quot;#83bcb6&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="category">
+<h3>Category<a class="headerlink" href="#category" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/category/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Categories&quot;</span><span class="p">,</span> <span class="s2">&quot;#eebede&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="style">
+<h3>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_full-width tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/style/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Styles&quot;</span><span class="p">,</span> <span class="s2">&quot;#bab0ac&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="accessioned">
+<h3>Accessioned<a class="headerlink" href="#accessioned" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/accession_year/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Accession Years&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff9d98&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="place">
+<h3>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/place/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Places&quot;</span><span class="p">,</span> <span class="s2">&quot;#908cc2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="object-type">
+<h3>Object Type<a class="headerlink" href="#object-type" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/object_type/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Object Types&quot;</span><span class="p">,</span> <span class="s2">&quot;#96cfcf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="collection">
+<h3>Collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/collection/search&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Collections&quot;</span><span class="p">,</span> <span class="s2">&quot;#77bdc7&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="event">
+<h3>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
+<p>Not a commonly used field, hence the low numbers.</p>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/event/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Events&quot;</span><span class="p">,</span> <span class="s2">&quot;#f57724&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="organisation">
+<h3>Organisation<a class="headerlink" href="#organisation" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/organisation/search?cluster_size=25&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Top 25 Organisations&quot;</span><span class="p">,</span> <span class="s2">&quot;#1d8640&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cluster-exploration-examples">
+<h2>Cluster Exploration Examples<a class="headerlink" href="#cluster-exploration-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="materials-used-in-venice-in-the-18th-century">
+<h3>Materials used in Venice in the 18th century<a class="headerlink" href="#materials-used-in-venice-in-the-18th-century" title="Permalink to this headline">¶</a></h3>
+<p>To return to the example at the start, let’s see which materials are in use in objects from (or depicting or association with) Venice between 1700 and 1800</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At present the id_place parameter <em>cannot</em> be restricted to return objects “made in this place” only (excluding depictions of the place, or associated with the place). This is a feature we will consider adding in future versions of the API, or will be implemented via a model such as <a class="reference external" href="https://linked.art/">Linked Art</a></p>
+</div>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/material/search?id_place=x29237&amp;year_made_from=1700&amp;year_made_to=1800&#39;</span><span class="p">)</span>
+<span class="n">treemap</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="s2">&quot;Materials&quot;</span><span class="p">,</span> <span class="s2">&quot;#aaccdd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="objects-containing-plastic-accessioned-in-the-c20th">
+<h3>Objects containing plastic accessioned in the C20th<a class="headerlink" href="#objects-containing-plastic-accessioned-in-the-c20th" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/accession_year/search?id_material=AAT14570&amp;year_accessioned_from=1900&amp;year_accessioned_to=1999&amp;cluster_size=100&#39;</span><span class="p">)</span>
+<span class="n">materials_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">materials_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count:Q&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value:O&quot;</span>
+<span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
+    <span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">dx</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;count:Q&#39;</span>
+<span class="p">)</span>
+
+<span class="p">(</span><span class="n">bars</span> <span class="o">+</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Objects containing plastic accessioned to the V&amp;A in the C20th&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-fc21c0ae7b3f457e80f4036d04ab2965"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fc21c0ae7b3f457e80f4036d04ab2965") {
+      outputDiv = document.getElementById("altair-viz-fc21c0ae7b3f457e80f4036d04ab2965");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "count"}, "y": {"type": "ordinal", "field": "value"}}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"type": "quantitative", "field": "count"}, "x": {"type": "quantitative", "field": "count"}, "y": {"type": "ordinal", "field": "value"}}}], "data": {"name": "data-7ff6e45c8a4f8bc75c000dd7942d8cc9"}, "height": 900, "title": "Objects containing plastic accessioned to the V&A in the C20th", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-7ff6e45c8a4f8bc75c000dd7942d8cc9": [{"id": "1999", "value": "1999", "count": 1514, "count_max_error": 0}, {"id": "1990", "value": "1990", "count": 120, "count_max_error": 0}, {"id": "1998", "value": "1998", "count": 97, "count_max_error": 0}, {"id": "1993", "value": "1993", "count": 78, "count_max_error": 0}, {"id": "1994", "value": "1994", "count": 63, "count_max_error": 0}, {"id": "1997", "value": "1997", "count": 35, "count_max_error": 0}, {"id": "1991", "value": "1991", "count": 30, "count_max_error": 0}, {"id": "1992", "value": "1992", "count": 25, "count_max_error": 0}, {"id": "1995", "value": "1995", "count": 25, "count_max_error": 0}, {"id": "1977", "value": "1977", "count": 23, "count_max_error": 0}, {"id": "1983", "value": "1983", "count": 23, "count_max_error": 0}, {"id": "1986", "value": "1986", "count": 21, "count_max_error": 0}, {"id": "1985", "value": "1985", "count": 19, "count_max_error": 0}, {"id": "1987", "value": "1987", "count": 19, "count_max_error": 0}, {"id": "1988", "value": "1988", "count": 19, "count_max_error": 0}, {"id": "1996", "value": "1996", "count": 17, "count_max_error": 0}, {"id": "1974", "value": "1974", "count": 14, "count_max_error": 0}, {"id": "1982", "value": "1982", "count": 14, "count_max_error": 0}, {"id": "1984", "value": "1984", "count": 14, "count_max_error": 0}, {"id": "1980", "value": "1980", "count": 12, "count_max_error": 0}, {"id": "1981", "value": "1981", "count": 12, "count_max_error": 0}, {"id": "1963", "value": "1963", "count": 11, "count_max_error": 0}, {"id": "1979", "value": "1979", "count": 10, "count_max_error": 0}, {"id": "1971", "value": "1971", "count": 9, "count_max_error": 0}, {"id": "1989", "value": "1989", "count": 9, "count_max_error": 0}, {"id": "1973", "value": "1973", "count": 8, "count_max_error": 0}, {"id": "1976", "value": "1976", "count": 7, "count_max_error": 0}, {"id": "1978", "value": "1978", "count": 7, "count_max_error": 0}, {"id": "1970", "value": "1970", "count": 6, "count_max_error": 0}, {"id": "1965", "value": "1965", "count": 3, "count_max_error": 0}, {"id": "1968", "value": "1968", "count": 3, "count_max_error": 0}, {"id": "1969", "value": "1969", "count": 3, "count_max_error": 0}, {"id": "1975", "value": "1975", "count": 3, "count_max_error": 0}, {"id": "1966", "value": "1966", "count": 2, "count_max_error": 0}, {"id": "1972", "value": "1972", "count": 2, "count_max_error": 0}, {"id": "1927", "value": "1927", "count": 1, "count_max_error": 0}, {"id": "1942", "value": "1942", "count": 1, "count_max_error": 0}, {"id": "1961", "value": "1961", "count": 1, "count_max_error": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>See more worked examples in the <a class="reference external" href="https://developers.vam.ac.uk/notebooks/">Data Exploration</a> site.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">vega_datasets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: vega_datasets in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (0.9.0)
+Requirement already satisfied: pandas in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (from vega_datasets) (1.1.5)
+Requirement already satisfied: pytz&gt;=2017.2 in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (from pandas-&gt;vega_datasets) (2021.1)
+Requirement already satisfied: numpy&gt;=1.15.4 in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (from pandas-&gt;vega_datasets) (1.26.1)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (from pandas-&gt;vega_datasets) (2.8.1)
+Requirement already satisfied: six&gt;=1.5 in /home/wimdavies/Projects/vanda-docs/etc-docs/api-book/.venv/lib/python3.10/site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;vega_datasets) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./data-vis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">Visualisations</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

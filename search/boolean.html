@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean Searching &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Filtering" href="../filter/introduction.html" />
+    <link rel="prev" title="Searching" href="introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/search/boolean.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/search/boolean.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phrase-searching">
+   Phrase searching
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-non-phrase-searching">
+     Example of non-Phrase searching
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-phrase-searching">
+     Example of Phrase searching
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#negated-searching">
+   Negated Searching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#and-or-searching">
+   AND/OR Searching
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-and-searching">
+     Examples of AND searching
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-or-searching">
+     Example of OR searching
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fuzzy-searching">
+   Fuzzy Searching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-operators-in-combination">
+   Boolean Operators in Combination
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="boolean-searching">
+<span id="boolean-top"></span><h1>Boolean Searching<a class="headerlink" href="#boolean-searching" title="Permalink to this headline">¶</a></h1>
+<p>Boolean search is a powerful method available in search to help you find the needle in the haystack, by improving the relevancy of the object records returned from a query. But boolean search can escalate in complexity once you start combining its operators, and the subtle interactions between them can become challenging to predict for even those with the most logical of minds.</p>
+<p>The boolean operators available are:</p>
+<ul class="simple">
+<li><p>Phrase Searching - e.g. ‘“William Morris”’</p></li>
+<li><p>Negated Searching  - e.g. ‘-silver’</p></li>
+<li><p>AND/OR searching - ‘gelato rome’ (AND), ‘gelato|rome’ (OR)</p></li>
+<li><p>Fuzzy searching (booleanish) - ‘graffito~2’</p></li>
+</ul>
+<p>These are not new query parameters, they are passed within the ‘q’ parameter value used for general text search (so they will search all fields)</p>
+<div class="section" id="phrase-searching">
+<h2>Phrase searching<a class="headerlink" href="#phrase-searching" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps the most simple boolean operator to understand, phrase searching allows you to specify that you want an exact phrase (a word or a sequence of words) to be matched, exactly as written. Normally if you search for multiple words, any occurance of the words in isolation anywhere in the record will be considered a match. For example, if you want to search for any objects that contain the words ‘William Morris’, you may not want to see object records mentioning the (hyperthetical) partnership of “William Smith” and “Jane Morris” but these would be returned, as they have the words ‘William’ and ‘Morris’ somewhere within them. Instead, if you search using double quotes around the words (‘“William Morris”’), you will now see a smaller number of results that have that exact phrase in it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Of course, if you really want to only find objects connected to the Victorian Artist &amp; Designer <a class="reference external" href="https://www.vam.ac.uk/collections/william-morris">William Morris</a>, you would be better use a filter either on the person, or on the maker if you are only interested in objects he was involved in creating, see <span class="xref std std-doc">filtering:top</span>) using the controlled vocab. identifier for William Morris (A8676).</p>
+<div class="highlight-[ notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-non-phrase-searching">
+<h3>Example of non-Phrase searching<a class="headerlink" href="#example-of-non-phrase-searching" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=William Morris&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the words &#39;William&#39; and &#39;Morris&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 2505 objects that have the words &#39;William&#39; and &#39;Morris&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-of-phrase-searching">
+<h3>Example of Phrase searching<a class="headerlink" href="#example-of-phrase-searching" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=&quot;William Morris&quot;&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s1"> objects that have the phrase &quot;William Morris&quot; somewhere in the record&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 2301 objects that have the phrase &quot;William Morris&quot; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="negated-searching">
+<h2>Negated Searching<a class="headerlink" href="#negated-searching" title="Permalink to this headline">¶</a></h2>
+<p>Also fairly simple to understand, negated search allows you to exclude object records you do not want to see, even though they would match otherwise. This is most commonly used in tandem with another operator or with a query, as otherwise you are likely to return a very large number of results (for example returning all records that do not mention pineapples would be over a million records and only of use to people with an irrational fear of pineapple).</p>
+<p>You can apply negation to single words in a text search (e.g. find object records that contain the word ‘blue’ but do not contain the word ‘azure’), to phrase search (as described above) and to <a class="reference internal" href="../filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a> (e.g. find records that are not associated with the maker William Morris )</p>
+<p>All you need to do apply negation is to prefix the word, phrase or filter term with a hyphen ‘-‘ (there must not be a space between the hyphen and the word/phrase/filter). Some examples of it in usage:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=blue&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word blue somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 67134 objects that have the word blue somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=blue azure&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the words blue and azure somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 131 objects that have the words blue and azure somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=blue -azure&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;blue&#39; and not the word &#39;azure&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 67003 objects that have the word &#39;blue&#39; and not the word &#39;azure&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="and-or-searching">
+<h2>AND/OR Searching<a class="headerlink" href="#and-or-searching" title="Permalink to this headline">¶</a></h2>
+<p>One of the key issues in searching within a large set of data is whether you want to have a broad set of results, some of which might be correct (and some not), or whether you want a smaller set of results which are mostly correct (but may be missing out on some other correct results).</p>
+<p>Using AND or OR in your search lets you decide which of these approaches to take, by indicating when you search for multiple words whether you want to find object records that contain <em>all</em> the search words (AND) , or if you are happy as well to see object records that contain only some of the words (OR). Up until now, without even telling you, we have been defaulting your searches to use AND, so only object records that match on all the terms are returned. But you can switch this to OR by using the ‘|’ operator between the search words.</p>
+<p>One particular use for OR searching is searching on variations of a topic, allowing you to find mentions of either or both words in one search query. For example if you want to find all records that must mention ‘photography’ and one or both of ‘travel’ and ‘landscape’ you could run two AND queries:</p>
+<div class="section" id="examples-of-and-searching">
+<h3>Examples of AND searching<a class="headerlink" href="#examples-of-and-searching" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=travel photography&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the words &#39;travel&#39; and &#39;photography&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 13322 objects that have the words &#39;travel&#39; and &#39;photography&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=landscape photography&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the words &#39;landscape&#39; and &#39;photography&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 8279 objects that have the words &#39;landscape&#39; and &#39;photography&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<p>and then you can combine the results (removing the duplicates when a record would have matched both queries, as it contains all three words). A faster way to acheieve the same thing though is one OR query</p>
+</div>
+<div class="section" id="example-of-or-searching">
+<h3>Example of OR searching<a class="headerlink" href="#example-of-or-searching" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=(travel|landscape) photography&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the words &#39;travel&#39; and/or &#39;landscape&#39; and &#39;photography&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 16373 objects that have the words &#39;travel&#39; and/or &#39;landscape&#39; and &#39;photography&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<p>which then returns all the records that:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Mention &#39;travel&#39; and &#39;photograpy&#39;
+* Mention &#39;landscape&#39; and &#39;photography&#39;
+* Mention &#39;travel&#39; and &#39;landscape&#39; and &#39;photography&#39;
+</pre></div>
+</div>
+<p>(The number for the OR query is not the sum of the first two AND queries, as object records that mention all three words will be duplicated in the results of the first two AND queries)</p>
+</div>
+</div>
+<div class="section" id="fuzzy-searching">
+<h2>Fuzzy Searching<a class="headerlink" href="#fuzzy-searching" title="Permalink to this headline">¶</a></h2>
+<p>This is not strictly a boolean operator, but it’s close enough to be considered so and can be combined with boolean operators. It lets you run a search query with a certain degree of variation allowed in matching, allowing you to find records that might have slightly different spellings across times &amp; cultures, dealing with singular and plural, catching typos, etc. For example, you might want to find any variations of how Shakespeare mat have been spelt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Shakespeare&#39;</span><span class="p">)</span>
+
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;Shakespeare&#39; somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 6150 objects that have the word &#39;Shakespeare&#39; somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Shakespeare~1&#39;</span><span class="p">)</span>
+
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;Shakespeare&#39; (with a fuzzy distance of 1 character change allowed) somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 6150 objects that have the word &#39;Shakespeare&#39; (with a fuzzy distance of 1 character change allowed) somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Shakespeare~2&#39;</span><span class="p">)</span>
+
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> objects that have the word &#39;Shakespeare&#39; (with a fuzzy distance of 2 character changes allowed) somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 6810 objects that have the word &#39;Shakespeare&#39; (with a fuzzy distance of 2 character changes allowed) somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from the increasing numbers, as you increase the fuzzy distance more records are returned. So for example the 2nd search would also include ‘Shakespere’ (one character removed),
+the 3rd search would also include ‘Shakspere’ (two characters removed).</p>
+<p>Of course, the danger is as you increase the fuzzy distance, the more likely irrelevant results are returned. So equally valid for the 3rd search would be matches on ‘Wakespear’, ‘Zakespeare’, ‘Rhakezpeare’ and so on. The shorter the word, the less useful fuzzy searching is, as too many irrelevant results are likely to be returned.</p>
+</div>
+<div class="section" id="boolean-operators-in-combination">
+<h2>Boolean Operators in Combination<a class="headerlink" href="#boolean-operators-in-combination" title="Permalink to this headline">¶</a></h2>
+<p>By combining boolean operators together you can emulate filtering operations, returning only exact matches from a query, but these results can sometimes be hard to interpret.</p>
+<p>For example, you might want to find:</p>
+<ul class="simple">
+<li><p>All records mentioning ‘Yorkshire’ (or minor variations on the spelling to within a 2 character distance inclusive)</p></li>
+<li><p>But not if they mention ‘Scarborough’</p></li>
+<li><p>But they must also mention ‘chair’</p></li>
+</ul>
+<p>Let’s build this up step-by-step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Yorkshire~2&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object records that mention Yorkshire (within a 2 character distance) somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 7426 object records that mention Yorkshire (within a 2 character distance) somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Yorkshire~2 -Scarborough&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object records that mention Yorkshire (within a 2 character distance) without mentioning Scarborough somewhere in the record&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 7368 object records that mention Yorkshire (within a 2 character distance) without mentioning Scarborough somewhere in the record
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=Yorkshire~2 -Scarborough chair&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">object_records</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object records that mention Yorkshire (within a 2 character distance) without mentioning Scarborough and also mention a chair&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 4154 object records that mention Yorkshire (within a 2 character distance) without mentioning Scarborough and also mention a chair
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using negation and boolean OR operators together, the order they are written may affect your results. For a very detailed investigation of this see <a class="reference external" href="https://github.com/elastic/elasticsearch/issues/4707">https://github.com/elastic/elasticsearch/issues/4707</a>`</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./search"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">Searching</a>
+    <a class='right-next' id="next-link" href="../filter/introduction.html" title="next page">Filtering</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

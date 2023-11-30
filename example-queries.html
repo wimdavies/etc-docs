@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Queries &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/example-queries.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/example-queries.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieve-objects-made-in-france-using-plywood">
+   Retrieve objects made in France using plywood
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieve-objects-made-in-edinburgh-in-the-1920s">
+   Retrieve objects made in Edinburgh in the 1920s
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graph-the-top-10-materials-used-in-objects-made-in-wales-in-the-18th-century-as-held-in-the-v-a-collection">
+   Graph the top 10 materials used in objects made in Wales in the 18th century (as held in the V&amp;A Collection)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-how-many-weavers-have-authority-records-in-the-parishes-of-cheshire">
+   Find how many weavers have authority (records) in the parishes of Cheshire
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="example-queries">
+<h1>Example Queries<a class="headerlink" href="#example-queries" title="Permalink to this headline">¶</a></h1>
+<p>Some sample queries putting together some of the parameters to retrieve subset of object records.</p>
+<p>For ease of display in this Jupyter notebook, these examples specifiy a CSV repsonse, which contains only a subset of the full fields available in the JSON response, exclude <code class="docutils literal notranslate"><span class="pre">&amp;response_format=csv</span></code> to get the default JSON response.</p>
+<div class="section" id="retrieve-objects-made-in-france-using-plywood">
+<h2>Retrieve objects made in France using plywood<a class="headerlink" href="#retrieve-objects-made-in-france-using-plywood" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?id_material=AAT12849&amp;id_place=x28849&amp;response_format=csv&#39;</span><span class="p">)</span>
+<span class="n">req</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>W.3-1983</td>
+      <td>1983</td>
+      <td>O67111</td>
+      <td>Armchair</td>
+      <td>Entas chair</td>
+      <td>France</td>
+      <td>Goldfinger, Ernö</td>
+      <td>designer</td>
+      <td>1931</td>
+      <td>2006AX7623</td>
+      <td>tubular steel</td>
+      <td>bending</td>
+      <td>Modernist</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>W.2-1983</td>
+      <td>1983</td>
+      <td>O67165</td>
+      <td>Armchair</td>
+      <td>Entas</td>
+      <td>France</td>
+      <td>Goldfinger, Ernö</td>
+      <td>designer</td>
+      <td>1931</td>
+      <td>2006AF5010</td>
+      <td>tubular steel</td>
+      <td>bending</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="retrieve-objects-made-in-edinburgh-in-the-1920s">
+<h2>Retrieve objects made in Edinburgh in the 1920s<a class="headerlink" href="#retrieve-objects-made-in-edinburgh-in-the-1920s" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?year_made_from=1920&amp;year_made_to=1920&amp;id_place=x28816&amp;response_format=csv&#39;</span><span class="p">)</span>
+<span class="n">req</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CIRC.611-1926</td>
+      <td>1926</td>
+      <td>O1034483</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CIRC.613-1926</td>
+      <td>1926</td>
+      <td>O1034475</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIRC.614-1926</td>
+      <td>1926</td>
+      <td>O1034471</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CIRC.615-1926</td>
+      <td>1926</td>
+      <td>O1034467</td>
+      <td>bookplate</td>
+      <td>Ex Libris Charles T. Nightgale</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1921</td>
+      <td>2006BF5869</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CIRC.616-1926</td>
+      <td>1926</td>
+      <td>O1034461</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CIRC.617-1926</td>
+      <td>1926</td>
+      <td>O1034458</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CIRC.621-1926</td>
+      <td>1926</td>
+      <td>O1034444</td>
+      <td>bookplate</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>paper</td>
+      <td>etching</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>CIRC.622-1926</td>
+      <td>1926</td>
+      <td>O1034438</td>
+      <td>seal</td>
+      <td>NaN</td>
+      <td>Edinburgh</td>
+      <td>Sutherland, John R.</td>
+      <td>artist</td>
+      <td>CA. 1902-1926</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level D</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RPS.1771-2018</td>
+      <td>2018</td>
+      <td>O1439108</td>
+      <td>Photograph</td>
+      <td>Portrait of William Etty R.A.</td>
+      <td>Scotland</td>
+      <td>Adamson, Robert</td>
+      <td>photographer</td>
+      <td>16th/17th October 1844</td>
+      <td>2018LC8893</td>
+      <td>NaN</td>
+      <td>photography</td>
+      <td>mid 19th century</td>
+      <td>Prints &amp; Drawings Study Room, level F</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>RPS.1781-2018</td>
+      <td>2018</td>
+      <td>O1439119</td>
+      <td>Photograph</td>
+      <td>William Etty, R.A.</td>
+      <td>Scotland</td>
+      <td>Adamson, Robert</td>
+      <td>photographer</td>
+      <td>16th/17th October 1844</td>
+      <td>2018LC9997</td>
+      <td>NaN</td>
+      <td>photography</td>
+      <td>mid 19th century</td>
+      <td>Prints &amp; Drawings Study Room, level F</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="graph-the-top-10-materials-used-in-objects-made-in-wales-in-the-18th-century-as-held-in-the-v-a-collection">
+<h2>Graph the top 10 materials used in objects made in Wales in the 18th century (as held in the V&amp;A Collection)<a class="headerlink" href="#graph-the-top-10-materials-used-in-objects-made-in-wales-in-the-18th-century-as-held-in-the-v-a-collection" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/material/search?id_place=x29337&amp;year_made_from=1700&amp;year_made_to=1800&amp;page_size=10&#39;</span><span class="p">)</span>
+
+<span class="n">materials_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">materials_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Material&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Number of Objects&#39;</span><span class="p">)</span>
+<span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-3b06abe8785f466489dd5e20842f390e"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-3b06abe8785f466489dd5e20842f390e") {
+      outputDiv = document.getElementById("altair-viz-3b06abe8785f466489dd5e20842f390e");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-d648905a4232eac0e3bca84192de0863"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "value", "sort": "-y", "title": "Material"}, "y": {"type": "quantitative", "field": "count", "title": "Number of Objects"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-d648905a4232eac0e3bca84192de0863": [{"id": "AAT14109", "value": "paper (fiber product)", "count": 105, "count_max_error": 0}, {"id": "x44137", "value": "toned paper", "count": 54, "count_max_error": 0}, {"id": "AAT15045", "value": "watercolour (paint)", "count": 50, "count_max_error": 0}, {"id": "AAT15045", "value": "watercolour", "count": 7, "count_max_error": 0}, {"id": "x30308", "value": "paper", "count": 7, "count_max_error": 0}, {"id": "x30347", "value": "pencil", "count": 6, "count_max_error": 0}, {"id": "x33202", "value": "Watercolour", "count": 4, "count_max_error": 0}, {"id": "x33202", "value": "watercolour", "count": 4, "count_max_error": 0}, {"id": "AAT10662", "value": "porcelain", "count": 3, "count_max_error": 0}, {"id": "AAT14910", "value": "enamel", "count": 3, "count_max_error": 0}, {"id": "AAT15012", "value": "ink", "count": 3, "count_max_error": 0}, {"id": "x29356", "value": "earthenware", "count": 3, "count_max_error": 0}, {"id": "AAT15025", "value": "sepia", "count": 2, "count_max_error": 0}, {"id": "AAT187371", "value": "printing ink", "count": 2, "count_max_error": 0}, {"id": "AAT242297", "value": "biscuit", "count": 2, "count_max_error": 0}, {"id": "x30618", "value": "pen and ink", "count": 2, "count_max_error": 0}, {"id": "x34671", "value": "bodycolour", "count": 2, "count_max_error": 0}, {"id": "AAT10946", "value": "brass (alloy)", "count": 1, "count_max_error": 0}, {"id": "AAT11051", "value": "wash", "count": 1, "count_max_error": 0}, {"id": "AAT11857", "value": "ivory", "count": 1, "count_max_error": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="find-how-many-weavers-have-authority-records-in-the-parishes-of-cheshire">
+<h2>Find how many weavers have authority (records) in the parishes of Cheshire<a class="headerlink" href="#find-how-many-weavers-have-authority-records-in-the-parishes-of-cheshire" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/search?q=weaver&amp;id_place=x29462&amp;response_format=csv&#39;</span><span class="p">)</span>
+<span class="n">req</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>No weavers have authority (records) in the parishes of Cheshire</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
